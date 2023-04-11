@@ -22,7 +22,7 @@ module.exports.addProduct = async(req,res) =>{
             title: req.body.title,
             description: req.body.description,
             price: req.body.price,
-            stock: req.body.stock,
+            quantity: req.body.quantity,
             image: req.body.image
         })
         res.send(await product.save())
