@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose');
@@ -6,14 +7,20 @@ const port = 3000
 
 connectDB();
 
+
 //This format data to json
 app.use(express.json())
 
+const ProductRouter = require('./routes/Products');
+app.use('/products',ProductRouter)
+
+
+app.use('/assest',express.static('assest'))
 
 
 mongoose.connection.once('open',()=>{
     console.log('Connect to MongoDB')
-    app.listen(port, ()=>{
-        console.log(`Listening on port: ` + port)
+    app.listen(process.env.PORT, ()=>{
+        console.log(`Listening on port: ` + process.env.PORT)
     })
 })
