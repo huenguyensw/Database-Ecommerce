@@ -13,8 +13,8 @@ const ProductSchema = new mongoose.Schema({
         type: Number,
         requried: true
     },
-    stock: {
-        type: String,
+    quantity: {
+        type: Number,
         required: true
     },
     image: {
