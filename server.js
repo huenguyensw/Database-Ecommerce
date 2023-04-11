@@ -1,15 +1,17 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
+const cors = require('cors')
 const mongoose = require('mongoose');
 const connectDB = require('./Config/DbConnection')
-const port = 3000
 
 connectDB();
 
 
 //This format data to json
 app.use(express.json())
+
+app.use(cors())
 
 const ProductRouter = require('./routes/Products');
 app.use('/products',ProductRouter)
