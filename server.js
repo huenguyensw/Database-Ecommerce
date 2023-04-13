@@ -16,8 +16,7 @@ app.use(cors())
 const ProductRouter = require('./routes/Products');
 app.use('/products',ProductRouter)
 
-const ImageRouter = require('./routes/Images');
-app.use('/images',ImageRouter)
+
 
 app.use('/uploads',express.static('uploads'))
 
