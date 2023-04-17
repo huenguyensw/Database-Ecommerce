@@ -17,8 +17,13 @@ module.exports.fetchSpecificProduct = async (req, res) => {
 }
 
 module.exports.addProduct = async (req, res) => {
-    console.log('req', req.file);
-    const {filename} = req.file;
+    var filename = '2023-04-17T09-17-01.956Zno-image-available-icon-flat-vector-25898826.png';
+    if(req.file){
+        console.log(req.file);
+        filename = req.file.filename;
+    }
+   
+    
     try {
         const product = new Product({
             title: req.body.title,
