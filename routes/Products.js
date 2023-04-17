@@ -20,7 +20,7 @@ const controller = require('../Controllers/ProductController')
 router.get('/',controller.fetchAllProducts)
 router.get('/:ProductId',controller.fetchSpecificProduct)
 router.post('/',upload.single('productImage'),controller.addProduct)
-router.put(('/:ProductId'),controller.editProduct)
+router.patch(('/:ProductId'),upload.single('productImage'),controller.editProduct)
 router.delete(('/:ProductId'),controller.deleteProduct)
 
 
