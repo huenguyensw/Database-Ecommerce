@@ -37,19 +37,19 @@ module.exports.addProduct = async (req, res) => {
 }
 
 module.exports.editProduct = async (req, res) => {
-    var filename = '2023-04-17T09-17-01.956Zno-image-available-icon-flat-vector-25898826.png';
-    if(req.file){
-        console.log(req.file);
-        filename = req.file.filename;
-    }
+    
     try {
-        res.send(await Product.updateOne({ _id: req.params.ProductId }, {
+        var productContent = {
             title: req.body.title,
             description: req.body.description,
             price: req.body.price,
-            quantity: req.body.quantity,
-            image: filename
-        }))
+            quantity: req.body.quantity
+        };
+        if(req.file){
+            console.log(req.file);
+            productContent.image = req.file.filename;
+        }
+        res.send(await Product.updateOne({ _id: req.params.ProductId }, productContent ))
     }
     catch (error) { console.log(error) }
 }
