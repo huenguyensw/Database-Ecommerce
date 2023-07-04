@@ -13,8 +13,11 @@ app.use(express.json())
 
 app.use(cors())
 
-const ProductRouter = require('./routes/Products');
-app.use('/products',ProductRouter)
+// const ProductRouter = require('./routes/Products');
+// app.use('/products',ProductRouter)
+
+const ToysRouter = require('./routes/Toys');
+app.use('/toys', ToysRouter)
 
 
 
